@@ -1,0 +1,47 @@
+version: "3.9"
+services:
+  mongo:
+    image: mongo:7
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+  backend:
+    build: ./backend
+    working_dir: /app
+    environment:
+      PORT: 4000
+      MONGO_URI: mongodb://mongo:27017/ecommerce
+      JWT_SECRET: change_me_please
+      CORS_ORIGIN: http://localhost:5173
+      STRIPE_SECRET_KEY: ""
+    ports:
+      - "4000:4000"
+    depends_on:
+      - mongo
+  frontend:
+    build: ./frontend
+    working_dir: /app
+    environment:
+      VITE_API_BASE: http://localhost:4000/api
+      VITE_STRIPE_PK: pk_test_12345
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    command: sh -c "npm install && npm run dev -- --host"
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+  mongo-express:
+    image: mongo-express:1.0.2-20
+    restart: unless-stopped
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongo
+      ME_CONFIG_BASICAUTH: "false"
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mongo
+volumes:
+  mongo_data:

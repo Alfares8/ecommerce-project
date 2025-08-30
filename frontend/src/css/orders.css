@@ -1,0 +1,60 @@
+.page-orders {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  gap: 18px;
+}
+
+.page-orders h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.orders-empty {
+  color: var(--muted);
+  text-align: center;
+  padding: 40px 0;
+}
+
+.orders-list {
+  display: grid;
+  gap: 14px;
+}
+
+/* Single order card */
+.order-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+}
+
+.order-id {
+  color: var(--text);
+}
+
+.order-total {
+  color: var(--primary);
+  font-size: 1rem;
+}
+
+.order-items {
+  list-style: disc;
+  padding-left: 20px;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.order-items li + li {
+  margin-top: 4px;
+}

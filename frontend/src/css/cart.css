@@ -1,0 +1,116 @@
+.page-cart {
+  display: grid;
+  gap: 18px;
+}
+@media (min-width: 900px) {
+  .page-cart {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+/* Empty state */
+.page-cart-empty {
+  text-align: center;
+  margin: 40px 0;
+}
+.page-cart-empty p {
+  margin-bottom: 12px;
+  color: var(--muted);
+}
+
+/* Items list */
+.cart-items {
+  display: grid;
+  gap: 12px;
+}
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px;
+}
+.cart-item .thumb {
+  width: 64px;
+  height: 64px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.cart-item .info {
+  flex: 1;
+}
+.cart-item .info .name {
+  font-weight: 600;
+}
+.cart-item .info .price {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.cart-item input {
+  width: 70px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+}
+.cart-item .remove {
+  background: var(--danger);
+  border: none;
+  border-radius: 10px;
+  padding: 6px 10px;
+  color: #fff;
+  cursor: pointer;
+}
+.cart-item .remove:hover {
+  background: #e14b4b;
+}
+
+.clear {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+  justify-self: start;
+}
+.clear:hover {
+  background: var(--surface);
+}
+
+/* Summary */
+.cart-summary {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  height: fit-content;
+}
+.cart-summary h3 {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.cart-summary .row {
+  display: flex;
+  justify-content: space-between;
+  margin: 4px 0;
+}
+.cart-summary .row.total {
+  font-weight: 700;
+  margin-top: 10px;
+}
+.cart-summary .checkout {
+  display: block;
+  margin-top: 14px;
+  background: var(--primary);
+  color: #fff;
+  text-align: center;
+  padding: 10px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+}
+.cart-summary .checkout:hover {
+  background: var(--primary-600);
+}

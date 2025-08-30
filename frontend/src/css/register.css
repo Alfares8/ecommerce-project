@@ -1,0 +1,76 @@
+.page-register {
+  display: grid;
+  place-items: center;
+  min-height: 100dvh;
+  padding: 24px;
+}
+
+.register-card {
+  width: min(92vw, 420px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
+}
+
+.register-card h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.register-form {
+  display: grid;
+  gap: 12px;
+}
+
+.register-form input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+}
+.register-form input::placeholder {
+  color: var(--muted);
+}
+
+.error {
+  font-size: 0.9rem;
+  color: var(--danger);
+}
+.success {
+  font-size: 0.9rem;
+  color: var(--success);
+}
+
+.register-btn {
+  width: 100%;
+  background: var(--primary);
+  border: none;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.register-btn:hover {
+  background: var(--primary-600);
+}
+
+.register-alt {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--muted);
+}
+.register-alt a {
+  color: var(--primary);
+  text-decoration: none;
+}
+.register-alt a:hover {
+  text-decoration: underline;
+}
