@@ -1,10 +1,24 @@
-import { Router } from 'express';
-import { listUsers, listOrders, updateOrderStatus } from '../controllers/adminController.js';
-import { requireAuth, requireAdmin } from '../middleware/auth.js';
+// backend/routes/adminRoutes.js
+import { Router } from "express";
+import {
+  listUsers,
+  listOrders,
+  updateOrderStatus,
+} from "../controllers/adminController.js";
+import { requireAuth, requireAdmin } from "../middleware/auth.js";
 
 const router = Router();
+
+// كل مسارات الأدمن لازم تكون محمية
 router.use(requireAuth, requireAdmin);
-router.get('/users', listUsers);
-router.get('/orders', listOrders);
-router.put('/orders/:id/status', updateOrderStatus);
+
+// قائمة المستخدمين
+router.get("/users", listUsers);
+
+// قائمة الطلبات
+router.get("/orders", listOrders);
+
+// تحديث حالة طلب (PATCH أفضل من PUT لأننا نعدل جزء فقط)
+router.patch("/orders/:id/status", updateOrderStatus);
+
 export default router;
